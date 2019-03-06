@@ -1,3 +1,3 @@
-id,name,time_slot,trainer_id,availability
-1,Yoga,morning,,0 / 30
-2,spinning,evening,Frank,0 / 8
+id,name,time_slot,trainer_id,max_occupancy,bookings_size
+1,yoga,morning,1,10,0
+2,spinning,morning,2,8,0
