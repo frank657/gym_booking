@@ -4,7 +4,7 @@ require_relative '../views/bookings_view'
 
 class BookingsController
   def initialize(activity_repository, member_repository, booking_repository)
-    @bookingrepository = booking_repository
+    @booking_repository = booking_repository
     @activity_repository = activity_repository
     @member_repository = member_repository
     @bookings_view = BookingsView.new

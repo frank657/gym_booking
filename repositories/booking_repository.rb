@@ -30,8 +30,9 @@ class BookingRepository
   def add(booking)
     @next_id = @bookings.empty? ? 1 : @bookings.last.id.to_i + 1
     booking.id = @next_id
-
-    @bookings << booking
+    if booking.activity.sign_up(booking)
+      @bookings << booking
+    end
     save_csv
   end
 

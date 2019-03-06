@@ -10,11 +10,15 @@ members_controller = MembersController.new(member_depo)
 
 employee_file = 'data/employee.csv'
 employee_depo = EmployeeRepository.new(employee_file)
-employees_controller = EmployeeController.new(employee_depo)
+employees_controller = EmployeesController.new(employee_depo)
 
 activity_file = 'data/activity.csv'
-activity_depo = ActivityRepository.new(activity_file)
-activities_controller = ActivityController.new(activity_depo)
+activity_depo = ActivityRepository.new(activity_file, employee_depo, member_depo)
+activities_controller = ActivitiesController.new(activity_depo)
 
-router = Router.new(members_controller, employees_controller, activities_controller)
+booking_file = 'data/booking.csv'
+booking_depo = BookingRepository.new(booking_file, activity_depo, member_depo)
+bookings_controller = BookingsController.new(activity_depo, member_depo, booking_depo)
+
+router = Router.new(members_controller, employees_controller, activities_controller, bookings_controller)
 router.run

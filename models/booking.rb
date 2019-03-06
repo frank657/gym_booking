@@ -1,10 +1,10 @@
 class Booking
-  attr_reader :activity, :member
-  attr_accessor :id
+  attr_reader :member
+  attr_accessor :id, :activity
 
   def initialize(attr = {})
     @id = attr[:id]
     @activity = attr[:activity]
-    @member = attributes[:member]
+    @member = attr[:member]
   end
 end

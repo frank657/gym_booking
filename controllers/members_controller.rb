@@ -14,7 +14,7 @@ class MembersController
 
   def add
     @view.display(@members)
-    name = @view.get_name
+    name = @view.ask_name
     member = Member.new(name: name)
     @members.add(member)
   end
