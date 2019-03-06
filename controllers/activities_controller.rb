@@ -9,7 +9,7 @@ class ActivitiesController
     @activities_view = ActivitiesView.new
   end
 
-  def add_activity
+  def add
     id = @activities_view.add_activity_id
     name = @activities_view.add_activity_name
     max_occ = @activities_view.add_activity_max_occupancy
@@ -22,5 +22,6 @@ class ActivitiesController
 
   def list
     array = @activity_repository.all
-    @activities_view.display_activivies(array)
+    @activities_view.display_activities(array)
+  end
 end
