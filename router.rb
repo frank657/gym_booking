@@ -1,11 +1,15 @@
 # TODO: implement the router of your app.
 require_relative 'controllers/members_controller'
+require_relative 'controllers/employees_controller'
+require_relative 'controllers/activities_controller'
 
 class Router
 # ask what user wants to do
 # list meals/ add meals
-  def initialize(controller)
-    @controller = controller
+  def initialize(members_controller, employees_controller, activities_controller)
+    @members_controller = members_controller
+    @employees_controller = employees_controller
+    @activities_controller = activities_controller
     @stop = false
   end
 
@@ -22,14 +26,23 @@ class Router
   def choices
     puts "1. Display all members"
     puts "2. Add a new member"
-    puts "3. Exit"
+    puts ""
+    puts "3. Display all trainers"
+    puts ""
+    puts "4. Display all activities"
+    puts "5. Add a new activity"
+    puts ""
+    puts "6. Exit"
   end
 
   def get_choice(choice)
     case choice
-      when 1 then @controller.list
-      when 2 then @controller.add
-      when 3 then stop!
+      when 1 then @members_controller.list
+      when 2 then @members_controller.add
+      when 3 then @employees_controller.list
+      when 4 then @activities_controller.list
+      when 5 then @activities_controller.add
+      when 6 then stop!
       else puts "Please choose 1, 2 or 3"
     end
   end
