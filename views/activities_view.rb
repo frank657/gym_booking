@@ -25,7 +25,7 @@ class ActivitiesView
     gets.chomp
   end
 
-  def display_activivies(array)
+  def display_activities(array)
     array.each do |x|
       puts " #{x.id}. #{x.name} - #{x.max_occupancy} - #{x.time_slot} "
     end
