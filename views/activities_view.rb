@@ -27,7 +27,7 @@ class ActivitiesView
 
   def display_activities(array)
     array.each do |x|
-      puts " #{x.id}. #{x.name} - #{x.max_occupancy} - #{x.time_slot} "
+      puts " #{x.id}. #{x.name} - #{x.max_occupancy} - #{x.time_slot} - #{x.bookings_size} / #{max_occupancy}"
     end
   end
 end

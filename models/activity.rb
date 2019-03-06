@@ -7,10 +7,11 @@ class Activity
     @id = attr[:id]
     @name = attr[:name]
     @max_occupancy = attr[:max_occupancy] || 30
+    @bookings_size = attr[:bookings_size] || 0
     @trainer = attr[:trainer]
     @time_slot = attr[:time_slot]
     @bookings = []
-    @availability = "0 / #{@max_occupancy}"
+    # @availability = "#{@bookings.size} / #{@max_occupancy}"
   end
 
   def available?
@@ -21,9 +22,12 @@ class Activity
     if available?
       @bookings << booking
       booking.activity = self
-      @availability = "#{@booking.size} / #{@max_occupancy}"
+      @bookings_size = @bookings.size
+      # @availability = "#{@bookings.size} / #{@max_occupancy}"
+      return true
     else
       puts "Sorry activity class full"
+      return false
     end
   end
 end

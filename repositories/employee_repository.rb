@@ -21,6 +21,10 @@ class EmployeeRepository
     @employees.select { |e| e.role == 'trainer' }
   end
 
+  def find_employee_by_name(name)
+    @employees.find { |e| e.name == name }
+  end
+
   def delete(id)
     @employees.each_with_index do |x, i|
       @employees.delete_at(i) if x.id == id
