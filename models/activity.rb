@@ -1,7 +1,7 @@
 
 class Activity
-  attr_reader :name, :max_occupancy, :time_slot, :availability
-  attr_accessor :id, :trainer, :bookings
+  attr_reader :name, :time_slot, :availability, :max_occupancy
+  attr_accessor :id, :trainer, :bookings, :bookings_size
 
   def initialize(attr = {})
     @id = attr[:id]
