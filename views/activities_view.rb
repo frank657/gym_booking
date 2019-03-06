@@ -1,10 +1,5 @@
 # class for activities view screen
 class ActivitiesView
-  def ask_activity_name
-    puts 'Which activity do you want to search'
-    gets.chomp
-  end
-
   def add_activity_id
     puts 'Insert activity id (number)'
     gets.chomp.to_i

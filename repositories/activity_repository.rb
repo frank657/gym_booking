@@ -2,9 +2,10 @@ require 'csv'
 require_relative '../models/activity'
 
 class ActivityRepository
-  def initialize(csv_file_path)
+  def initialize(csv_file_path, employee_repository)
     @activities = []
     @csv_file_path = csv_file_path
+    @employee_repository = employee_repository
     load_csv if File.exist?(csv_file_path)
   end
 
@@ -15,6 +16,7 @@ class ActivityRepository
       row[:name]  = row[:name]
       row[:max_occupancy] = row[:max_occupancy] || 30
       row[:time_slot] = row[:time_slot]
+      row[:trainer] = @employee_repository.find(row[:trainer_id].to_i)
 
       @activities << activity.new(row)
     end
@@ -38,9 +40,9 @@ class ActivityRepository
 
   def save_csv
     CSV.open(@csv_file_path, 'wb') do |csv|
-      csv << ['id', 'name', 'max_occupancy', 'time_slot']
+      csv << ['id', 'name', 'max_occupancy', 'time_slot', 'trainer_id']
       @activities.each do |activity|
-        csv << [activity.id, activity.name, activity.max_occupany, activity.trainer, activity.time_slot]
+        csv << [activity.id, activity.name, activity.max_occupany, activity.time_slot, activity.employee.id]
       end
     end
   end
