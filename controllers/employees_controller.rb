@@ -7,7 +7,7 @@ class EmployeesController
     @view = EmployeesView.new
   end
 
-  def list_trainers
+  def list
     # display trainer list with its activity
     trainers = @repository.all_trainers
     @view.display_trainers(trainers)
