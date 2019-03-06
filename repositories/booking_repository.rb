@@ -18,8 +18,9 @@ class BookingRepository
       row[:id] = row[:id].to_i
       row[:activity] = @activity_repository.find(row[:activity_id].to_i)
       row[:member] = @member_repository.find(row[:member_id].to_i)
-
-      @bookings << Booking.new(row)
+      bk = Booking.new(row)
+      @bookings << bk
+      row[:activity].sign_up(bk)
     end
   end
 
