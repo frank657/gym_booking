@@ -1,7 +1,8 @@
 id,name,time_slot,trainer_id,max_occupancy,bookings_size
-1,yoga,morning,1,10,0
-2,spinning,morning,2,8,0
-3,spinning,evening,3,20,3
-4,combat,afternoon,4,20,6
-5,yoga,morning,6,10,5
-6,weights,morning,4,15,6
+1,yoga,morning,,10,9
+2,spinning,morning,,8,2
+3,spinning,evening,,20,3
+4,combat,afternoon,,20,6
+5,yoga,morning,,10,5
+6,weights,morning,,15,1
+7,peach butts squads,evening,Ivy,20,0

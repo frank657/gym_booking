@@ -15,6 +15,7 @@ class Router
   end
 
   def run
+    welcome
     until @stop
       choices
       puts "Input your choice"
@@ -24,29 +25,129 @@ class Router
     end
   end
 
+  def welcome
+    banner = File.read('banner.txt')
+    print `clear`
+    puts ""
+    puts ""
+    puts ""
+    puts "======================================"
+    puts "     WELCOME TO SUPER MONKEY GYM"
+    puts "======================================"
+    puts ""
+    puts ""
+    puts ""
+    puts banner
+    # puts "_______AAAA_T_H_E__R_A_K_E_AAAA________\n       VVVV               VVVV\n       (__)               (__)\n        \ \               / /\n         \ \   \\|||//   / /\n          > \   _   _   / <\n hang      > \ / \ / \ / <\n  in        > \\_o_o_// <\n  there...   > ( (_) ) <\n              >|     |<\n             / |\___/| \ \n             / (_____) \ \n             /         \ \n              /   o   \ \n               ) ___ (\n              / /   \ \ \n             ( /     \ ) \n             ><       >< \n            ///\     /\\\ \n            '''       '''"
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "Admire the image"
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print "."
+    sleep(0.5)
+    print `clear`
+  end
+
   def choices
+    puts ""
+    puts ""
+    puts "==============================="
+    puts "            M E N U"
+    puts "==============================="
     puts "1. Display all members"
     puts "2. Add a new member"
     puts ""
-    puts "3. Display all trainers"
+    puts "3. Display all activities"
+    puts "4. Add a new activity"
     puts ""
-    puts "4. Display all activities"
-    puts "5. Add a new activity"
+    puts "5. Make a booking for a member"
+    puts "6. Exit"
     puts ""
-    puts "6. Assign member to an activity"
-    puts "7. Exit"
   end
 
   def get_choice(choice)
     case choice
-      when 1 then @members_controller.list
-      when 2 then @members_controller.add
-      when 3 then @employees_controller.list
-      when 4 then @activities_controller.list
-      when 5 then @activities_controller.add
-      when 6 then @bookings_controller.add # assign member
-      when 7 then stop!
-      else puts "Please choose 1, 2 or 3"
+      when 1
+        print `clear`
+        puts "==============================="
+        puts "         MEMBER LIST"
+        puts "==============================="
+        @members_controller.list
+      when 2
+        print `clear`
+        puts "==============================="
+        puts "         MEMBER LIST"
+        puts "==============================="
+        puts ""
+        @members_controller.add
+      when 3
+        print `clear`
+        puts "==============================="
+        puts "        ACTIVITY LIST"
+        puts "==============================="
+        puts ""
+        @activities_controller.list
+      when 4
+        print `clear`
+        puts "==============================="
+        puts "        ACTIVITY LIST"
+        puts "==============================="
+        puts ""
+        @activities_controller.list
+        puts ""
+        @activities_controller.add
+      when 5
+        print `clear`
+        puts "==============================="
+        puts "      BOOKING SYSTEM 2.0"
+        puts "==============================="
+        puts ""
+        puts "ACTIVTIES:"
+        @activities_controller.list
+        puts ""
+        puts ""
+        puts "MEMBERS:"
+        @members_controller.list
+        puts ""
+        @bookings_controller.add # assign member
+        puts "loading..."
+        sleep(3)
+        puts "loading..."
+        sleep(3)
+        puts "still loading..."
+        sleep(3)
+        puts "FINALLY UPDATED!!!!"
+        puts "..."
+        @activities_controller.list
+      when 6 then
+        banner = File.read('banner.txt')
+        puts banner
+        stop!
+      else puts "Please choose 1, 2, 3, 4, 5 or 6"
     end
   end
 
